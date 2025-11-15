@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Classes in JS</title>
+</head>
+<body>
+
+<h1>Classes in JS</h1>
+<p>A static method is created with the 'static' keyword and you can only call the method on the class itself.</p>
+
+<p id="student1"></p>
+<p id="student2"></p>
+
+<script>
+    class Student {
+        constructor(name, year) {
+            this.name = name;
+            this.year = year;
+        }
+
+        // instance method
+        age() {
+            const date = new Date();
+            return date.getFullYear() - this.year;
+        }
+
+        describe() {
+            return `${this.name} is ${this.age()} years old (born ${this.year}).`;
+        }
+
+        // static factory method - must be called on the class
+        static fromObject(obj) {
+            return new Student(obj.name, obj.year);
+        }
+    }
+
+    // create instances
+    const studentA = new Student('Alice', 2000);
+    const studentB = Student.fromObject({ name: 'Bob', year: 1998 });
+
+    // write to the page
+    document.getElementById('student1').textContent = studentA.describe();
+    document.getElementById('student2').textContent = studentB.describe();
+</script>
+
+</body>
+</html>

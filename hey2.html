@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JavaScript Classes</title>
+
+</head>
+
+<body>
+
+<h1>Classes in JS</h1>
+
+<p>A static method is created with the 'static' keyword and you can only call the method on the class itself.</p>
+
+<p id="student1"></p>
+
+<p id="student2"></p>
+
+<script>
+
+class Student{
+
+constructor(name,year){
+
+this.name = name;
+
+this.year = year;
+
+}
+
+age(){
+
+let date = new Date();
+
+return date.getFullYear() - this.year;
+
+}
+
+}
+
+student1 = new Student("Riya",2014);
+
+document.getElementById("student1").innerHTML = "My name is "+ student1.name + ". I am born in "+ student1.year + ". And my age is: "+ student1.age() ;
+
+student2 = new Student("Tina",2018);
+
+document.getElementById("student2").innerHTML = "My name is "+student2.name + ". I am born in " + student2.year + ". And my age is: "+ student2.age();
+
+</script>
+
+</body>
